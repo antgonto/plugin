@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="AVIB"
+            id="markertest.commands.category">
+      </category>
+      <command
+            categoryId="markertest.commands.category"
+            id="markertest.commands.connect"
+            name="Connect Command">
+      </command>
+      <command
+            categoryId="markertest.commands.category"
+            id="markertest.commands.disconnect"
+            name="Disconnect Command">
+      </command>
+      <command
+            categoryId="markertest.commands.category"
+            id="markertest.commands.send"
+            name="Send Command">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="markertest.handlers.ConnectHandler"
+            commandId="markertest.commands.connect">
+      </handler>
+      <handler
+            class="markertest.handlers.DisconnectHandler"
+            commandId="markertest.commands.disconnect">
+      </handler>
+      <handler
+            class="markertest.handlers.SendHandler"
+            commandId="markertest.commands.send">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="markertest.commands.send"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+M3+2">
+      </key>
+      <key
+            commandId="markertest.commands.connect"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+M3+1">
+      </key>
+      <key
+            commandId="markertest.commands.disconnect"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+M3+3">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               icon="icons/browser.png"
+               id="markertest.menus.menuAVIB"
+               label="AVIB"
+               mnemonic="M">
+            <command
+                  commandId="markertest.commands.sampleCommand"
+                  mnemonic="S"
+                  label="AVIB commands"
+                  id="markertest.menus.sampleCommand">
+            </command>
+            <command
+                  commandId="markertest.commands.connect"
+                  icon="icons/connect.png"
+                  id="markertest.menus.connectCommand"
+                  label="Connect">
+            </command>
+            <command
+                  commandId="markertest.commands.send"
+                  icon="icons/send.png"
+                  id="markertest.menus.sendCommand"
+                  label="Send to Server">
+            </command>
+            <command
+                  commandId="markertest.commands.disconnect"
+                  icon="icons/disconnect.png"
+                  id="markertest.menus.disconnectCommand"
+                  label="Disconnect">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="markertest.toolbars.AVIBToolbar">
+            <command
+                  commandId="markertest.commands.connect"
+                  icon="icons/connect.png"
+                  id="markertest.toolbars.connectCommand"
+                  label="Conect to Server"
+                  tooltip="Conect to Server">
+            </command>
+            <command
+                  commandId="markertest.commands.disconnect"
+                  icon="icons/disconnect.png"
+                  id="markertest.toolbars.disconnectCommand"
+                  label="Conect to Server"
+                  tooltip="Disconnect">
+            </command>
+            <command
+                  commandId="markertest.commands.send"
+                  icon="icons/send.png"
+                  id="markertest.toolbars.sendCommand"
+                  label="Send to Server"
+                  tooltip="Send to Server">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+
+<!-- Defines my own custom marker, use the marker view panel to see them when they are created-->
+	<extension point="org.eclipse.core.resources.markers"
+	      id="com.mymarkers.mymarker"
+	      name="My Marker">
+	      <super type="org.eclipse.core.resources.textmarker"/>
+	      <super type="org.eclipse.core.resources.marker"/>
+	      <persistent value="true"/>
+	</extension> 
+    
+<!-- Popup menu to add a menu to right click of a java file in the text editor--> 
+	<extension point="org.eclipse.ui.popupMenus"> 
+	   	<viewerContribution 
+	      	id="org.eclipse.ui.articles.action.contribution.popup.navigator"
+	   		targetID="#CompilationUnitEditorContext"> 
+	      	<action
+	            class="markertest.CreateMarkerAction"
+	            id="com.example.create.marker"
+	            label="Create Marker"
+	            menubarPath="additions">
+	      	</action>
+	      	
+	      	<action
+	            class="markertest.CountMarkersForFile"
+	            id="com.example.filecount.marker"
+	            label="Count Markers"
+	            menubarPath="additions">
+	      	</action> 
+	   	</viewerContribution>
+	</extension>
+	
+<!-- Popup menu to add a menu to right click of a java file in the package explorer--> 	
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution id="Clarity.objectContribution2"
+	 		objectClass="org.eclipse.jdt.core.IOpenable">
+         	<action
+               label="Count Markers"
+               class="markertest.CountMarkersForFiles"
+               menubarPath="additions"
+               id="com.example.foldercount.marker">
+         	</action>
+		</objectContribution>
+	</extension>
+
+<!-- Annotation specification:- describes what the annotation will look like and its properties -->
+   <extension point="org.eclipse.ui.editors.markerAnnotationSpecification"
+	 id="myannotationspecification"
+	 name="MyAnnotation">
+	
+	 <specification
+		  annotationType="com.myannotation"
+		  label="MyAnnotation"
+		  icon="icons/marker.png"
+		  overviewRulerPreferenceKey="clruler"
+		  overviewRulerPreferenceValue="false"
+		  colorPreferenceKey="clcolor"
+		  colorPreferenceValue="18, 140, 63"
+		  textPreferenceKey="cltext"
+		  textPreferenceValue="true"
+		  verticalRulerPreferenceKey="clvertical"
+		  verticalRulerPreferenceValue="true"
+		  textStylePreferenceKey="clstyle"
+		  textStylePreferenceValue="BOX">
+	 </specification>
+   </extension>
+
+<!-- Links the annotation spec to the marker -->
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+      	<type
+			markerSeverity="0"
+			super="org.eclipse.ui.workbench.texteditor.info"
+			name="AVIB.myannotation"
+			markerType="com.myannotation"/>
+	</extension>
+   
+  <!-- define the marker updater class-->
+	<extension point="org.eclipse.ui.editors.markerUpdaters">
+		<updater
+			id="AVIB.MarkerUpdater"
+			class="markertest.MarkerUpdater"
+			markerType="com.myannotation">
+		</updater>
+	</extension>
+  
+ <!--define the decorator -->
+	<extension point="org.eclipse.ui.decorators">
+		<decorator
+		    id="AVIB.filedecorator"
+		    label="MyMarker Decorator"
+		    state="true"
+		    class= "markertest.FileDecorator"
+		    adaptable="true"
+			lightweight="true">
+			<enablement>
+				<objectClass name="org.eclipse.core.resources.IResource"/>      
+			</enablement>
+		</decorator>
+	</extension>
+ <extension
+       id="product"
+       point="org.eclipse.core.runtime.products">
+    <product
+          application="org.eclipse.e4.ui.workbench.swt.E4Application"
+          name="avib">
+       <property
+             name="appName"
+             value="avib">
+       </property>
+    </product>
+ </extension>
+
+</plugin>

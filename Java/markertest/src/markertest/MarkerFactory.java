@@ -1,0 +1,161 @@
+package markertest;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.text.ITextSelection;
+import org.eclipse.jface.text.Position;
+import org.eclipse.jface.text.TextSelection;
+import org.eclipse.jface.text.source.IAnnotationModel;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.TreeSelection;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.texteditor.IDocumentProvider;
+import org.eclipse.ui.texteditor.ITextEditor;
+import org.eclipse.ui.texteditor.SimpleMarkerAnnotation;
+
+/**
+ * @version 1.0
+ * @author Gerald Valverde Mc kenzie
+ * Computer Engineering
+ * AVIB
+ * 
+ */
+public class MarkerFactory {
+	
+	//Marker ID
+	public static final String MARKER = "com.mymarkers.mymarker";
+	
+	//Annotation ID
+	public static final String ANNOTATION = "com.myannotation";
+	
+	/*
+	 * Creates a Marker
+	 */
+	public static IMarker createMarker(IResource res, Position position)
+    throws CoreException {
+			
+            IMarker marker = null;
+            //note: you use the id that is defined in your plugin.xml
+            marker = res.createMarker(MARKER);
+            marker.setAttribute(IMarker.MESSAGE, "Method");
+            //compute and set char start and char end
+            int start = position.getOffset();
+            int end = position.getOffset() + position.getLength();
+            marker.setAttribute(IMarker.CHAR_START, start);
+            marker.setAttribute(IMarker.CHAR_END, end);
+            return marker;
+    }
+
+	/*
+	 * returns a list of a resources markers
+	 */
+	public static List<IMarker> findMarkers(IResource resource) {
+	     try {
+	         return Arrays.asList(resource.findMarkers(MARKER, true, IResource.DEPTH_ZERO));
+	     } catch (CoreException e) {
+	         return new ArrayList<IMarker>();
+	    }
+	}
+	
+	/*
+	 * Returns a list of markers that are linked to the resource or any sub resource of the resource
+	 */
+	public static List<IMarker> findAllMarkers(IResource  resource) {
+        try {
+            return Arrays.asList(resource.findMarkers(MARKER, true, IResource.DEPTH_INFINITE));
+        } catch (CoreException e) {
+            return new ArrayList<IMarker>();
+        }
+    }
+	
+	
+	/*
+	 * Returns the selection of the package explorer
+	 */
+	public static TreeSelection getTreeSelection() {
+
+		ISelection selection = MarkerPlugin.getActiveWorkbenchWindow().getSelectionService().getSelection();
+		if (selection instanceof TreeSelection) {
+			return (TreeSelection)selection;
+		}
+		return null;
+	}
+
+	/*
+	 * Returns the selection of the package explorer
+	 */
+	public static TextSelection getTextSelection() {
+
+		ISelection selection = MarkerPlugin.getActiveWorkbenchWindow().getSelectionService().getSelection();
+		if (selection instanceof TextSelection) {
+			return (TextSelection)selection;
+		}
+		return null;
+	}
+	
+	public static void addAnnotation(IMarker marker, ITextSelection selection, ITextEditor editor) {
+	      //The DocumentProvider enables to get the document currently loaded in the editor
+	      IDocumentProvider idp = editor.getDocumentProvider();
+
+	      //This is the document we want to connect to. This is taken from the current editor input.
+	      IDocument document = idp.getDocument(editor.getEditorInput());
+
+	      //The IannotationModel enables to add/remove/change annoatation to a Document loaded in an Editor
+	      IAnnotationModel iamf = idp.getAnnotationModel(editor.getEditorInput());
+	      
+	      //Note: The annotation type id specify that you want to create one of your annotations
+	      SimpleMarkerAnnotation ma = new SimpleMarkerAnnotation(ANNOTATION, marker);
+	      
+	      //Finally add the new annotation to the model
+	      iamf.connect(document);
+	      iamf.addAnnotation(ma,new Position(selection.getOffset(),selection.getLength()));
+	      
+	      iamf.disconnect(document);
+	}
+	public static void addAnnotation(IMarker marker, Position pos, ITextEditor editor) {
+	      //The DocumentProvider enables to get the document currently loaded in the editor
+	      IDocumentProvider idp = editor.getDocumentProvider();
+
+	      //This is the document we want to connect to. This is taken from the current editor input.
+	      IDocument document = idp.getDocument(editor.getEditorInput());
+
+	      //The IannotationModel enables to add/remove/change annoatation to a Document loaded in an Editor
+	      IAnnotationModel iamf = idp.getAnnotationModel(editor.getEditorInput());
+
+	      //Note: The annotation type id specify that you want to create one of your annotations
+	      SimpleMarkerAnnotation ma = new SimpleMarkerAnnotation(ANNOTATION, marker);
+
+	      //Finally add the new annotation to the model
+	      iamf.connect(document);
+	      iamf.addAnnotation(ma,pos);
+	      iamf.disconnect(document);
+	}
+	
+	public static void deleteAnnotation(IMarker marker) {
+		ITextEditor editor= MarkerPlugin.getEditor();
+	      //The DocumentProvider enables to get the document currently loaded in the editor
+	      IDocumentProvider idp = editor.getDocumentProvider();
+
+	      //This is the document we want to connect to. This is taken from the current editor input.
+	      IDocument document = idp.getDocument(editor.getEditorInput());
+
+	      //The IannotationModel enables to add/remove/change annoatation to a Document loaded in an Editor
+	      IAnnotationModel iamf = idp.getAnnotationModel(editor.getEditorInput());
+
+	      //Note: The annotation type id specify that you want to create one of your annotations
+	      SimpleMarkerAnnotation ma = new SimpleMarkerAnnotation(ANNOTATION, marker);
+
+	      //Finally add the new annotation to the model
+	      iamf.connect(document);
+	      iamf.removeAnnotation(ma);
+	      iamf.disconnect(document);
+	}
+	
+}
