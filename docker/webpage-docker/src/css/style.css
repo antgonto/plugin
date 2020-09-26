@@ -1,0 +1,51 @@
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 3.5px;
+}
+
+text {
+  font-family: sans-serif;
+  font-size: 10px;
+}
+
+.bg{
+	width: 99%;
+	height: 90%;
+	background-color: #323639;
+}
+
+svg {
+    font-family: monospace;
+}
+.node {
+
+}
+
+.node circle {
+    fill: lightgray;
+    stroke: black;
+    stroke-opacity: 0.5;
+    cursor: pointer;
+}
+
+.node text {
+    text-anchor: middle;
+}
+
+
+.link { stroke: #999; stroke-opacity: .6; stroke-width: 2px; }
+
+.tooltip {
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  min-width: 400px;
+  text-align: left;
+  color: white;
+}
