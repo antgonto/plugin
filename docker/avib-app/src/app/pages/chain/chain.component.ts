@@ -54,13 +54,18 @@ export class ChainComponent implements OnInit {
       .attr("width",this.width-10)
       .attr("height",this.height-100)
       
-    this.color = d3.scaleOrdinal(d3.schemeCategory10);
+    this.color = d3.scaleQuantize<string>()
+        .domain(this.data.domain2)
+        .range(["rgb(237,248,233)","rgb(186,228,179)","rgb(116,196,118)","rgb(49,163,84)","rgb(0,109,44)"]);
     
     this.simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(function(d) { 
             let temp :any = d;
             return temp.id; 
-         }))
+         })
+          .distance(200)
+          .strength(2)
+        )
         .force("charge", d3.forceManyBody())
         .force("center", d3.forceCenter(this.width / 2, this.height / 2));
     
@@ -68,25 +73,72 @@ export class ChainComponent implements OnInit {
   }
 
   render(graph){
+    const radiusScale = d3.scaleLinear()
+      .domain(this.data.domain)
+      .range([10,50]);
+
+
     this.link = this.svg.append("g")
       .attr("class", "links")
       .selectAll("line")
       .data(graph.links)
       .enter().append("line")
-        .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
 
     this.node = this.svg.append("g")
       .attr("class", "nodes")
       .selectAll("circle")
       .data(graph.nodes)
       .enter().append("circle")
-        .attr("r", 5)
-        .attr("fill", (d)=> { return this.color(d.group); })
+        .attr("id", function(d){return d.id})
+        .attr("r",(d)=>{ return radiusScale(d.firstMetric)})
+        .attr("fill", (d)=> {return this.color(d.firstMetric)})
         .call(d3.drag()
             .on("start", (event,d)=>{return this.dragstarted(event,d)})
             .on("drag", (event,d)=>{return this.dragged(event,d)})
             .on("end", (event,d)=>{return this.dragended(event,d)})
         );
+    let  tooltip = d3.select("body")
+      .append("div")
+      .style("position", "absolute")
+      .style("z-index", "10")
+      .style("visibility", "hidden")
+      .style("background-color", "black")
+      .style("color", "white")
+      .style("border-radius", "5px")
+      .style("padding", "10px")
+
+    //Display tooltip
+    this.svg.selectAll('circle')
+        .on('click', function (event,d) { // arrow function will produce this = undefined
+           d3.selectAll('circle')
+           //.style("fill", "lightgray");
+           .style("fill", (d)=> {
+             let temp:any;
+             temp=d;
+             return this.color(temp.firstMetric)
+           });
+           d3.select(this)
+            .style("fill", "aliceblue");
+           this.sendNode(d.name);
+         })
+        .on('mouseover', function (event,d) {
+            d3.selectAll('circle')
+              .style("stroke", "black");
+            d3.select(this)
+              .style("stroke", "green");
+            return tooltip
+              .text(d.name)
+              .style("visibility", "visible")
+        })
+        .on("mousemove", function(event:MouseEvent){
+            return tooltip
+              .style("top", (event.clientY-10)+"px")
+              .style("left",(event.clientX+10)+"px");
+         })
+        .on("mouseout", function(){
+            return tooltip.style("visibility", "hidden");
+        });
 
     this.node.append("title")
       .text(function(d) { return d.id; });
@@ -220,15 +272,21 @@ export class ChainComponent implements OnInit {
   }
 
   ticked() {
+    const radiusScale = d3.scaleLinear()
+      .domain(this.data.domain)
+      .range([10,50]);
+  
     this.link
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+        .attr("x2", (d)=> { 
+            return this.calculateX(d.target.x, d.target.y, d.source.x, d.source.y,radiusScale(d.target.firstMetric)); 
+        })
+        .attr("y2", (d)=> { 
+            return this.calculateY(d.target.x, d.target.y, d.source.x, d.source.y, radiusScale(d.target.firstMetric));
+        });
 
-    this.node
-        .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
+    this.node.attr("transform", function (d) {return "translate(" + d.x + ", " + d.y + ")";});
   }
   
   dragended(event,d) {
@@ -245,5 +303,31 @@ export class ChainComponent implements OnInit {
 
   sendNode(nodeSignature){
     console.log(nodeSignature)
+  }
+
+  calculateX( tx, ty, sx, sy, radius){
+      if(tx == sx) return tx;                 //if the target x == source x, no need to change the target x.
+
+      radius+=8;
+      let xLength = Math.abs(tx - sx);    //calculate the difference of x
+      let yLength = Math.abs(ty - sy);    //calculate the difference of y
+      //calculate the ratio using the trigonometric function
+      let ratio = radius / Math.sqrt(xLength * xLength + yLength * yLength);
+      if(tx > sx)  return tx - xLength * ratio;    //if target x > source x return target x - radius
+      if(tx < sx) return  tx + xLength * ratio;    //if target x < source x return target x + radius
+
+  }
+
+  //Gets the y position of the pointed node
+  calculateY(tx, ty, sx, sy, radius){
+      if(ty == sy) return ty;                 //if the target y == source y, no need to change the target y.
+      radius+=8;
+      let xLength = Math.abs(tx - sx);    //calculate the difference of x
+      let yLength = Math.abs(ty - sy);    //calculate the difference of y
+      //calculate the ratio using the trigonometric function
+      let ratio = radius / Math.sqrt(xLength * xLength + yLength * yLength);
+      if(ty > sy) return ty - yLength * ratio;   //if target y > source y return target x - radius
+      if(ty < sy) return ty + yLength * ratio;   //if target y > source y return target x - radius
+
   }
 }
