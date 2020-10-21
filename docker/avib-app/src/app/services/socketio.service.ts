@@ -17,6 +17,10 @@ export class SocketioService {
     console.log("Socket",this.socket);
   }
 
+  channelSubscribe(channel:string, callback){
+    this.socket.on(channel, callback);
+  }
+
   sendMessage(channel:string,message:string){  
     this.socket.emit(channel,message);
   }

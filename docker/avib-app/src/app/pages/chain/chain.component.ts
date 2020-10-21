@@ -22,6 +22,8 @@ export class ChainComponent implements OnInit {
     metric1 : ['',Validators.required],
     metric2 : ['',Validators.required]
   })
+  metric1="1";
+  metric2="2";
 
 	//D3
   margin = 50;
@@ -35,10 +37,10 @@ export class ChainComponent implements OnInit {
 
   //socket
   hasTeam:boolean = false;
+  currentSearch:any;
+  alreadySubscribed=false;
 
   //Neo4j
-  metric1="1"
-  metric2="2"
   url:string='bolt://localhost:7687';
   username:string= 'neo4j';
   password:string= 'admin';
@@ -50,23 +52,20 @@ export class ChainComponent implements OnInit {
     private socketioService: SocketioService) { }
 
   ngOnInit(): void {
+    this.searchForm.setValue({
+      qualifiedName:'Neo4j.Driver.Internal.ConnectionPool.Release',
+      metric1:"1",
+      metric2:"2"
+    });
+
     //Get screen size
     this.socketioService.setupSocketConnection();
+    this.createSocketSubscriptions();
+    
+
+
     this.width = window.innerWidth;
     this.height = window.innerHeight;
-
-  	this.neo4jService.connect(this.url,this.username,this.password,this.encrypted)
-  		.then(driver =>{
-  			if(driver){
-  				console.log("Connected succesfully");
-  			}
-  		});
-    this.getData('Neo4j.Driver.Internal.ConnectionPool.Release');
-  }
-
-  createGraphSvg(){
-    let transform;
-
     this.svg = d3.select("svg")
       .attr("width",this.width-10)
       .attr("height",this.height-100)
@@ -74,9 +73,14 @@ export class ChainComponent implements OnInit {
               this.svg.attr("transform", event.transform)
             }))
       .append("g");
-    
-    
-    this.render(this.data);
+
+  	this.neo4jService.connect(this.url,this.username,this.password,this.encrypted)
+  		.then(driver =>{
+  			if(driver){
+  				console.log("Connected succesfully");
+  			}
+  		});
+    this.getData('Neo4j.Driver.Internal.ConnectionPool.Release',1,2);
   }
 
   render(graph){
@@ -210,7 +214,7 @@ export class ChainComponent implements OnInit {
       .links(graph.links);  
   }
 
-  async getData(method){
+  async getData(method, metricType1,metricType2){
 
     await this.neo4jService.run('MATCH (m:Metodo {name:'+"'"+method+"'"+'})-[r:CALLS *]->(b) RETURN m,r,b')
     .then((result)=>{
@@ -249,8 +253,8 @@ export class ChainComponent implements OnInit {
                   });
         }
         //let metric = result[i].method.icrlavg;
-        let metric = this.getMetric(this.metric1,result[i].method);
-        let metric2 = this.getMetric(this.metric2,result[i].method);
+        let metric = this.getMetric(metricType1,result[i].method);
+        let metric2 = this.getMetric(metricType2,result[i].method);
 
         if(min>metric){
           min = metric
@@ -309,7 +313,7 @@ export class ChainComponent implements OnInit {
       console.log(error)
       throw error;
     });
-    this.createGraphSvg();
+    this.render(this.data);
   }
 
   getMetric(type,method){
@@ -388,22 +392,78 @@ export class ChainComponent implements OnInit {
 
   sendNode(nodeSignature){
     console.log("Has team:",this.hasTeam);
-    if(this.hasTeam && nodeSignature!= undefined){
+    console.log("Clicked node:",nodeSignature);
+    if(this.hasTeam && nodeSignature!== undefined){
       let temp = {
         query: nodeSignature,
-        metric1: "1",
-        metric2: "2",
+        metric1: this.searchForm.value.metric1,
+        metric2: this.searchForm.value.metric2,
       }
       this.socketioService.sendMessage('teamClick',JSON.stringify(temp));
       console.log("Emmitted team click.");
-      this.getData(nodeSignature);
+      this.getData(nodeSignature,temp.metric1, temp.metric2);
     }
-    else if(nodeSignature!= undefined){
+    else if(nodeSignature!== undefined){
       this.socketioService.sendMessage('nodeClicked', nodeSignature);
     }
   }
 
-  onSubmit(){
-
+  createSocketSubscriptions(){
+    this.socketioService.channelSubscribe('changeNode', (message)=>{
+      if(message!=null){
+        this.searchForm.value.qualifiedName = message;
+        console.log(`Received from server: ${message}`);
+        this.getData(message, this.searchForm.value.metric1,this.searchForm.value.metric1);
+      }
+    });
   }
+
+  onSubmit(){
+    let formValue = this.searchForm.value;
+    this.currentSearch={
+      query:formValue.qualifiedName,
+      metric1: formValue.metric1,
+      metric2: formValue.metric2
+    }
+    this.getData(formValue.qualifiedName,formValue.metric1,formValue.metric2);
+  }
+
+  onCreateTeam(){
+    this.socketioService.sendMessage('createConnection',JSON.stringify(this.currentSearch));
+    this.hasTeam=true;
+    if(!this.alreadySubscribed){
+      this.alreadySubscribed=true;
+      this.socketioService.channelSubscribe('teamUpdate', (message)=>{
+        console.log(this.searchForm.value.qualifiedName);
+        if(message !=null){
+          console.log(`Received from server: ${message}`);
+          this.currentSearch = JSON.parse(message);
+          this.searchForm.value.qualifiedName= this.currentSearch.query;
+          this.searchForm.value.metric1 =  this.currentSearch.metric1;
+          this.searchForm.value.metric2 =  this.currentSearch.metric2;
+          this.getData(this.currentSearch.query, this.currentSearch.metric1,this.currentSearch.metric2);
+        }
+      });
+    }
+  }
+
+  onJoinTeam(){
+    this.socketioService.sendMessage('joinConnection','team1');
+    this.hasTeam=true;
+    if(!this.alreadySubscribed){
+      this.alreadySubscribed=true;
+      this.socketioService.channelSubscribe('teamUpdate', (message)=>{
+        console.log(this.searchForm.value.qualifiedName);
+        if(message !=null){
+          console.log(`Received from server: ${message}`);
+          this.currentSearch = JSON.parse(message);
+          this.searchForm.value.qualifiedName= this.currentSearch.query;
+          this.searchForm.value.metric1 =  this.currentSearch.metric1;
+          this.searchForm.value.metric2 =  this.currentSearch.metric2;
+          this.getData(this.currentSearch.query, this.currentSearch.metric1,this.currentSearch.metric2);
+        }
+      });
+    }
+  }
+
 }

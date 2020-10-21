@@ -3,8 +3,8 @@
 	  <span>AVIB</span>
 	</mat-toolbar>
 
-	<mat-drawer-container class="example-container" [hasBackdrop]="true">
-	  <mat-drawer #drawer mode="push" class="drawer">
+	<mat-drawer-container class="example-container" [hasBackdrop]="false" >
+	  <mat-drawer #drawer mode="push" class="drawer" [opened]="true">
 	  	<h1>Search for a Method</h1>
   		<form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="form-conatiner">
 		  	<mat-form-field appearance="fill">
@@ -34,6 +34,13 @@
 				<br>
 				<button mat-raised-button  type="submit" [disabled]="!searchForm.valid" color="primary">Search</button>
 			</form>
+			<div class="team-container">
+				<h1>Team Management</h1>
+				<button mat-raised-button color="primary">Create Team</button>
+				<button mat-raised-button color="accent">Join Team</button>
+			</div>
+
+
 			
 	  </mat-drawer>
 	  <mat-drawer-content>
