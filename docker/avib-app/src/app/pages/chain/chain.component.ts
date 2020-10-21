@@ -57,6 +57,12 @@ export class ChainComponent implements OnInit {
               this.svg.attr("transform", event.transform)
             }))
       .append("g");
+    
+    
+    this.render(this.data);
+  }
+
+  render(graph){
     //Clearview
     this.svg.selectAll("*").remove();
     //Initial Definition
@@ -76,20 +82,16 @@ export class ChainComponent implements OnInit {
       .style('stroke','none');
     
     this.simulation = d3.forceSimulation()
-        .force("link", d3.forceLink().id(function(d) { 
-            let temp :any = d;
-            return temp.id; 
-         })
-          .distance(200)
-          .strength(2)
-        )
-        .force("charge", d3.forceManyBody())
-        .force("center", d3.forceCenter(this.width / 2, this.height / 2));
-    
-    this.render(this.data);
-  }
+      .force("link", d3.forceLink().id(function(d) { 
+          let temp :any = d;
+          return temp.id; 
+       })
+        .distance(200)
+        .strength(2)
+      )
+      .force("charge", d3.forceManyBody())
+      .force("center", d3.forceCenter(this.width / 2, this.height / 2));
 
-  render(graph){
     const radiusScale = d3.scaleLinear()
       .domain(this.data.domain)
       .range([10,50]);
