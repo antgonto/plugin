@@ -2,6 +2,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AngularNeo4jService } from 'angular-neo4j';
 import * as d3 from 'd3';
 
@@ -15,6 +16,13 @@ import { SocketioService } from '../../services/socketio.service';
   styleUrls: ['./chain.component.scss']
 })
 export class ChainComponent implements OnInit {
+
+  searchForm = this.formBuilder.group({
+    qualifiedName : ['', Validators.required],
+    metric1 : ['',Validators.required],
+    metric2 : ['',Validators.required]
+  })
+
 	//D3
   margin = 50;
   width :number;
@@ -38,6 +46,7 @@ export class ChainComponent implements OnInit {
 
   constructor(
     private neo4jService : AngularNeo4jService,
+    private formBuilder: FormBuilder,
     private socketioService: SocketioService) { }
 
   ngOnInit(): void {
@@ -394,4 +403,7 @@ export class ChainComponent implements OnInit {
     }
   }
 
+  onSubmit(){
+
+  }
 }

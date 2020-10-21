@@ -1,23 +1,37 @@
-.bg{
-	width: 99%;
-	height: 90%;
-	background-color: #323639;
-}
+
 .container {
-	position: absolute;
 	background: rgb(105,105,105);
-	width: 98vw;
-	height: 97vh;
+	width: 100%;
+	height: 100%;
+}
+.drawer{
+	padding: 20px; 
+}
+.btn-edit {
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+}
+
+.form-conatiner {
+	display: flex;
+	height: 90%;
+	width:100%;
+	flex-direction: column;
 }
 
 svg {
     font-family: monospace;
 }
 
+
+
 text {
   font-family: sans-serif;
   font-size: 10px;
 }
+
+//SVG classes
 ::ng-deep{
 	
 	.links line {
