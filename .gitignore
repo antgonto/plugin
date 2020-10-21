@@ -2,4 +2,5 @@ docker/db-volume/
 */node_modules/*
 docker/webpage-docker/dist/
 docker/webpage-docker/node_modules/
+docker/server-docker/node_modules/
 docker/avib-app/node_modules/
