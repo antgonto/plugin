@@ -6,6 +6,7 @@ import { AngularNeo4jService } from 'angular-neo4j';
 import * as d3 from 'd3';
 
 import { AvibMethod } from '../../models/avib-method';
+import { SocketioService } from '../../services/socketio.service';
 
 
 @Component({
@@ -14,9 +15,7 @@ import { AvibMethod } from '../../models/avib-method';
   styleUrls: ['./chain.component.scss']
 })
 export class ChainComponent implements OnInit {
-  metric1="1"
-  metric2="2"
-	
+	//D3
   margin = 50;
   width :number;
   height :number;
@@ -24,17 +23,26 @@ export class ChainComponent implements OnInit {
   simulation:any;
   link:any;
   node:any;
-
   data:any;
+
+  //socket
+  hasTeam:boolean = false;
+
+  //Neo4j
+  metric1="1"
+  metric2="2"
   url:string='bolt://localhost:7687';
   username:string= 'neo4j';
   password:string= 'admin';
   encrypted:boolean=false;
 
-  constructor(private neo4jService : AngularNeo4jService) { }
+  constructor(
+    private neo4jService : AngularNeo4jService,
+    private socketioService: SocketioService) { }
 
   ngOnInit(): void {
     //Get screen size
+    this.socketioService.setupSocketConnection();
     this.width = window.innerWidth;
     this.height = window.innerHeight;
 
@@ -347,9 +355,6 @@ export class ChainComponent implements OnInit {
     d.fy = d.y;
   }
 
-  sendNode(nodeSignature){
-    console.log(nodeSignature)
-  }
 
   calculateX( tx, ty, sx, sy, radius){
       if(tx == sx) return tx;                 //if the target x == source x, no need to change the target x.
@@ -370,6 +375,23 @@ export class ChainComponent implements OnInit {
       let ratio = radius / Math.sqrt(xLength * xLength + yLength * yLength);
       if(ty > sy) return ty - yLength * ratio;   //if target y > source y return target x - radius
       if(ty < sy) return ty + yLength * ratio;   //if target y > source y return target x - radius
+  }
+
+  sendNode(nodeSignature){
+    console.log("Has team:",this.hasTeam);
+    if(this.hasTeam && nodeSignature!= undefined){
+      let temp = {
+        query: nodeSignature,
+        metric1: "1",
+        metric2: "2",
+      }
+      this.socketioService.sendMessage('teamClick',JSON.stringify(temp));
+      console.log("Emmitted team click.");
+      this.getData(nodeSignature);
+    }
+    else if(nodeSignature!= undefined){
+      this.socketioService.sendMessage('nodeClicked', nodeSignature);
+    }
   }
 
 }
