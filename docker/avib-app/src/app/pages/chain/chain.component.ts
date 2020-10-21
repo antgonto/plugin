@@ -50,9 +50,28 @@ export class ChainComponent implements OnInit {
 
   createGraphSvg(){
     let transform;
+
     this.svg = d3.select("svg")
       .attr("width",this.width-10)
       .attr("height",this.height-100)
+      .append("g");
+
+    //Initial Definition
+    this.svg.append('defs')
+      .append('marker')
+      .attr('id','arrowhead')
+      .attr('viewBox','-0 -5 10 10')
+      .attr('refX',5)
+      .attr('refY',0)
+      .attr('orient','auto')
+      .attr('markerWidth',8)
+      .attr('markerHeight',8)
+      .attr('xoverflow','visible')
+      .append('svg:path')
+      .attr('d', 'M 0,-5 L 10 ,0 L 0,5')
+      .attr('fill', '#999')
+      .style('stroke','none');
+
       
     this.color = d3.scaleQuantize<string>()
         .domain(this.data.domain2)
@@ -77,13 +96,28 @@ export class ChainComponent implements OnInit {
       .domain(this.data.domain)
       .range([10,50]);
 
+    this.link = this.svg.selectAll(".link")
+      .data(graph.links)
+      .enter()
+      .append("line")
+      .attr("class", "link")
+      .attr('marker-end','url(#arrowhead)')
 
-    this.link = this.svg.append("g")
+    const edgepaths = this.svg.selectAll(".edgepath")
+      .data(graph.links)
+      .enter()
+      .append('path')
+      .attr('class', 'edgepath')
+      .attr('fill-opacity', 0)
+      .attr('stroke-opacity', 0)
+      .style("pointer-events", "none");
+
+    /*this.link = this.svg.append("g")
       .attr("class", "links")
       .selectAll("line")
       .data(graph.links)
       .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });*/
 
     this.node = this.svg.append("g")
       .attr("class", "nodes")
@@ -222,6 +256,10 @@ export class ChainComponent implements OnInit {
       this.data.domain2.push(min2);
       this.data.domain2.push(max2);
 
+      console.log("Domain 1:",this.data.domain);
+      console.log("Domain 2:",this.data.domain2);
+      console.log("Nodes:",this.data.nodes);
+
       //Creates the links for other nodes (Consider making recursive case 1,2,3)
       for (let i = 1; i < result.length-1; i++) { //Does not evaluate the last because it is already linked
         for (let j = i+1; j < result.length; j++) {
@@ -268,7 +306,6 @@ export class ChainComponent implements OnInit {
   dragged(event,d) {
     d.fx = event.x;
     d.fy = event.y;
-    d3.pack
   }
 
   ticked() {
@@ -290,9 +327,9 @@ export class ChainComponent implements OnInit {
   }
   
   dragended(event,d) {
-    if (!event.active) this.simulation.alphaTarget(0);
-    d.fx = null;
-    d.fy = null;
+    if (!event.active) this.simulation.alphaTarget(0.3).restart()
+    d.fx = d.x;
+    d.fy = d.y;
   }
   
   dragstarted(event,d) {
