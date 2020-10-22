@@ -16,3 +16,5 @@ Import-Package: org.eclipse.core.resources,
  org.eclipse.jface.text.source,
  org.eclipse.ui.ide,
  org.eclipse.ui.texteditor
+Bundle-ClassPath: library.jar,
+ .
