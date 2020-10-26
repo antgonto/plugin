@@ -8,6 +8,8 @@ Inside the `docker` folder you will find the projects for the server, webpage an
 
 ## Continuos Integration
 
+![Server CI](https://github.com/antgonto/plugin/workflows/Server%20CI/badge.svg)
+
 **Last update 26-Oct-2020. The actions are currently DISABLED. Currently not using an external tool for CI/CD.**
 
 This repository has actions configured that will build any changes done to the diferent projects in the `docker` folder. If the CI is done using a tool external to GitHub, then they will disabled. A line will be added to keep track of the current state. Keep it updated with the state and the date of the laste update. 
