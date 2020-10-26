@@ -6,11 +6,11 @@ name: Server CI
 on:
   push:
     paths:
-      - 'docker/server-docker/**'
+      - './docker/server-docker/**'
     branches: [ master, development ]
   pull_request:
     paths:
-      - 'docker/server-docker/**'
+      - './docker/server-docker/**'
     branches: [ development ]
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
       
     - name: Cache node modules
       uses: actions/cache@v2.1.2
-      working-directory: ./docker/avib-app
+      working-directory: ./docker/server-docker
       with:
         # A list of files, directories, and wildcard patterns to cache and restore
         path: ~/.npm
@@ -39,16 +39,9 @@ jobs:
    
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
-      working-directory: ./docker/avib-app
+      working-directory: ./docker/server-docker
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm update
     - run: npm ci
     - run: npm run build --aot --if-present  
-      
-      
-      
-      
-      
-      
-      
