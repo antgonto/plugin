@@ -8,33 +8,57 @@
     ".NETCoreApp,Version=v3.1": {
       "SocketCLient/1.0.0": {
         "dependencies": {
-          "SocketIO4Net.Client": "0.6.26"
+          "SocketIO4Net.Client": "0.6.26",
+          "SocketIOClient": "2.0.2.9"
         },
         "runtime": {
           "SocketCLient.dll": {}
         }
       },
-      "Newtonsoft.Json/4.0.8": {
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.NETCore.Targets/1.1.0": {},
+      "Newtonsoft.Json/12.0.3": {
         "runtime": {
-          "lib/net40/Newtonsoft.Json.dll": {
-            "assemblyVersion": "4.0.8.0",
-            "fileVersion": "4.0.8.14612"
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
           }
         }
       },
       "SocketIO4Net.Client/0.6.26": {
         "dependencies": {
-          "Newtonsoft.Json": "4.0.8"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
-          "lib/net40/SocketIOClient.dll": {
-            "assemblyVersion": "0.6.26.0",
-            "fileVersion": "0.6.26.0"
-          },
           "lib/net40/WebSocket4Net.dll": {
             "assemblyVersion": "0.7.0.0",
             "fileVersion": "0.7.0.0"
           }
+        }
+      },
+      "SocketIOClient/2.0.2.9": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "System.Collections": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SocketIOClient.dll": {
+            "assemblyVersion": "2.0.2.9",
+            "fileVersion": "2.0.2.9"
+          }
+        }
+      },
+      "System.Collections/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Runtime/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0"
         }
       }
     }
@@ -45,12 +69,26 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Newtonsoft.Json/4.0.8": {
+    "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DdlLLKJ8OYJ72Nv9R1LrHkB4ruem1b+il2amiulDm5xA4zfglfzkyz0U+i/eHjrRe3dV7xt95M7bUTiWGMYCkg==",
-      "path": "newtonsoft.json/4.0.8",
-      "hashPath": "newtonsoft.json.4.0.8.nupkg.sha512"
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Targets/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
+      "path": "microsoft.netcore.targets/1.1.0",
+      "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
     "SocketIO4Net.Client/0.6.26": {
       "type": "package",
@@ -58,6 +96,27 @@
       "sha512": "sha512-KOV5M/3xAOUNXc2GXYA8GkwMemfGBjut8gyjU5/tTGwTZl2mBtS6J426pyGuxDr/tzXozu6QHVlCLpum1HigdQ==",
       "path": "socketio4net.client/0.6.26",
       "hashPath": "socketio4net.client.0.6.26.nupkg.sha512"
+    },
+    "SocketIOClient/2.0.2.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JaKKhlMB6UfWDzwf4GGiEVpalZYioyW9KXoASQykKM3y+mkyhXWFZRSMvRq/kXcBWmllblkERnRDyxABylXWQA==",
+      "path": "socketioclient/2.0.2.9",
+      "hashPath": "socketioclient.2.0.2.9.nupkg.sha512"
+    },
+    "System.Collections/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3Dcj85/TBdVpL5Zr+gEEBUuFe2icOnLalmEh9hfck1PTYbbyWuZgh4fmm2ysCLTrqLQw6t3TgTyJ+VLp+Qb+Lw==",
+      "path": "system.collections/4.3.0",
+      "hashPath": "system.collections.4.3.0.nupkg.sha512"
+    },
+    "System.Runtime/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
+      "path": "system.runtime/4.3.0",
+      "hashPath": "system.runtime.4.3.0.nupkg.sha512"
     }
   }
 }

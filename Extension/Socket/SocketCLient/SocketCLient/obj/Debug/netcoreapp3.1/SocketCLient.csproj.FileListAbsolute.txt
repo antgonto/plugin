@@ -14,3 +14,4 @@ D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\obj\Debug\ne
 D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\obj\Debug\netcoreapp3.1\SocketCLient.dll
 D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\obj\Debug\netcoreapp3.1\SocketCLient.pdb
 D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\obj\Debug\netcoreapp3.1\SocketCLient.genruntimeconfig.cache
+D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\obj\Debug\netcoreapp3.1\SocketCLient.csproj.CoreCompileInputs.cache
