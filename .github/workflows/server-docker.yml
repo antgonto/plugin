@@ -1,0 +1,23 @@
+name: Server Docker Image CI
+
+on:
+  push:
+    paths:
+      - './docker/server-docker/**'
+    branches: [ master ]
+  pull_request:
+    paths:
+      - './docker/server-docker/**'
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      working-directory: ./docker/server-docker
+      run: docker build . --file Dockerfile --tag avib-server:$(date +%s)
