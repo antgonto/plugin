@@ -8,7 +8,7 @@ Inside the `docker` folder you will find the projects for the server, webpage an
 
 ## Continuos Integration
 
-![Server CI](https://github.com/antgonto/plugin/workflows/Server%20CI/badge.svg)
+![Webpage CI](https://github.com/antgonto/plugin/workflows/Webpage%20CI/badge.svg)
 
 **Last update 26-Oct-2020. The actions are currently DISABLED. Currently not using an external tool for CI/CD.**
 
