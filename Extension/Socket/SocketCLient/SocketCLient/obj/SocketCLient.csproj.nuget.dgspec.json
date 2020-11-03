@@ -41,6 +41,10 @@
             "SocketIO4Net.Client": {
               "target": "Package",
               "version": "[0.6.26, )"
+            },
+            "SocketIOClient": {
+              "target": "Package",
+              "version": "[2.0.2.9, )"
             }
           },
           "imports": [

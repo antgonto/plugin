@@ -38,6 +38,7 @@ namespace SocketCLient
             }
             else
             {
+                Console.WriteLine(socket.IsConnected.ToString());
                 Console.WriteLine(socket.ReadyState.ToString(), "Error!");
                 Console.WriteLine("Failed To Connect To Server!", "Error!");
             }

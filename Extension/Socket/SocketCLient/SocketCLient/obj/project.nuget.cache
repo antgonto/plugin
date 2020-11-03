@@ -1,23 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "rm7FekUG7wsvxlhlxOzLS70IFN6Z/tnXgFwG5GYwOaNrLydOQQW84CZanWMvHwRvrEdEfPmXMuGtPctmW6vPLA==",
+  "dgSpecHash": "ExQRbDEDKot/Ccq07a/MFkFrly/8rCBtChgGo+N7IR1HwyTZYhTPsoOiZ5w+WLYu9EWaBysm9e2mcmLjoOzfSw==",
   "success": true,
   "projectFilePath": "D:\\Documents\\AVIB\\plugin\\Extension\\Socket\\SocketCLient\\SocketCLient\\SocketCLient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\gvmck\\.nuget\\packages\\newtonsoft.json\\4.0.8\\newtonsoft.json.4.0.8.nupkg.sha512",
-    "C:\\Users\\gvmck\\.nuget\\packages\\socketio4net.client\\0.6.26\\socketio4net.client.0.6.26.nupkg.sha512"
+    "C:\\Users\\gvmck\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\gvmck\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\gvmck\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\gvmck\\.nuget\\packages\\socketio4net.client\\0.6.26\\socketio4net.client.0.6.26.nupkg.sha512",
+    "C:\\Users\\gvmck\\.nuget\\packages\\socketioclient\\2.0.2.9\\socketioclient.2.0.2.9.nupkg.sha512",
+    "C:\\Users\\gvmck\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\gvmck\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
   ],
   "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "El paquete \"Newtonsoft.Json 4.0.8\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
-      "libraryId": "Newtonsoft.Json",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
     {
       "code": "NU1701",
       "level": "Warning",

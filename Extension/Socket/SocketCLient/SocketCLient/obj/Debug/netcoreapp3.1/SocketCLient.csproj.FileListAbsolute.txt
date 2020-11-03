@@ -10,7 +10,6 @@ D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\bin\Debug\ne
 D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\bin\Debug\netcoreapp3.1\SocketIOClient.dll
 D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\bin\Debug\netcoreapp3.1\WebSocket4Net.dll
-D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\obj\Debug\netcoreapp3.1\SocketCLient.csproj.CoreCompileInputs.cache
 D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\obj\Debug\netcoreapp3.1\SocketCLient.csproj.CopyComplete
 D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\obj\Debug\netcoreapp3.1\SocketCLient.dll
 D:\Documents\AVIB\plugin\Extension\Socket\SocketCLient\SocketCLient\obj\Debug\netcoreapp3.1\SocketCLient.pdb
