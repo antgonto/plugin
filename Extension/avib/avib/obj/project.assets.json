@@ -979,6 +979,20 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "SocketIO4Net.Client/0.6.26": {
+        "type": "package",
+        "dependencies": {
+          "newtonsoft.json": "4.0.8"
+        },
+        "compile": {
+          "lib/net40/SocketIOClient.dll": {},
+          "lib/net40/WebSocket4Net.dll": {}
+        },
+        "runtime": {
+          "lib/net40/SocketIOClient.dll": {},
+          "lib/net40/WebSocket4Net.dll": {}
+        }
+      },
       "SocketIOClient.NetFx/1.0.0.5": {
         "type": "package",
         "dependencies": {
@@ -2291,6 +2305,20 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "SocketIO4Net.Client/0.6.26": {
+        "type": "package",
+        "dependencies": {
+          "newtonsoft.json": "4.0.8"
+        },
+        "compile": {
+          "lib/net40/SocketIOClient.dll": {},
+          "lib/net40/WebSocket4Net.dll": {}
+        },
+        "runtime": {
+          "lib/net40/SocketIOClient.dll": {},
+          "lib/net40/WebSocket4Net.dll": {}
+        }
+      },
       "SocketIOClient.NetFx/1.0.0.5": {
         "type": "package",
         "dependencies": {
@@ -3579,6 +3607,20 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "SocketIO4Net.Client/0.6.26": {
+        "type": "package",
+        "dependencies": {
+          "newtonsoft.json": "4.0.8"
+        },
+        "compile": {
+          "lib/net40/SocketIOClient.dll": {},
+          "lib/net40/WebSocket4Net.dll": {}
+        },
+        "runtime": {
+          "lib/net40/SocketIOClient.dll": {},
+          "lib/net40/WebSocket4Net.dll": {}
+        }
+      },
       "SocketIOClient.NetFx/1.0.0.5": {
         "type": "package",
         "dependencies": {
@@ -4865,6 +4907,20 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "SocketIO4Net.Client/0.6.26": {
+        "type": "package",
+        "dependencies": {
+          "newtonsoft.json": "4.0.8"
+        },
+        "compile": {
+          "lib/net40/SocketIOClient.dll": {},
+          "lib/net40/WebSocket4Net.dll": {}
+        },
+        "runtime": {
+          "lib/net40/SocketIOClient.dll": {},
+          "lib/net40/WebSocket4Net.dll": {}
         }
       },
       "SocketIOClient.NetFx/1.0.0.5": {
@@ -6474,6 +6530,22 @@
         "packageIcon.png"
       ]
     },
+    "SocketIO4Net.Client/0.6.26": {
+      "sha512": "KOV5M/3xAOUNXc2GXYA8GkwMemfGBjut8gyjU5/tTGwTZl2mBtS6J426pyGuxDr/tzXozu6QHVlCLpum1HigdQ==",
+      "type": "package",
+      "path": "socketio4net.client/0.6.26",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SocketIOClient.XML",
+        "lib/net40/SocketIOClient.dll",
+        "lib/net40/SocketIOClient.pdb",
+        "lib/net40/WebSocket4Net.dll",
+        "lib/net40/WebSocket4Net.pdb",
+        "socketio4net.client.0.6.26.nupkg.sha512",
+        "socketio4net.client.nuspec"
+      ]
+    },
     "SocketIOClient.NetFx/1.0.0.5": {
       "sha512": "GY8TgN21SR0hoxFgkClAgPW+4La2BT4kHAYwhW48duQ7acB61+dx5MrK1nzhmC5aaGdXvKXrxNXnGd8xNTLRig==",
       "type": "package",
@@ -7322,6 +7394,7 @@
     ".NETFramework,Version=v4.7.2": [
       "Microsoft.VSSDK.BuildTools >= 16.6.2057",
       "Microsoft.VisualStudio.SDK >= 16.0.205",
+      "SocketIO4Net.Client >= 0.6.26",
       "SocketIOClient.NetFx >= 1.0.0.5",
       "SocketIoClientDotNet >= 0.9.13"
     ]
@@ -7332,11 +7405,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gvmck\\OneDrive\\Documentos\\AVIB\\visualizacion\\extension\\avib\\avib\\avib.csproj",
+      "projectUniqueName": "D:\\Documents\\AVIB\\plugin\\Extension\\avib\\avib\\avib.csproj",
       "projectName": "avib",
-      "projectPath": "C:\\Users\\gvmck\\OneDrive\\Documentos\\AVIB\\visualizacion\\extension\\avib\\avib\\avib.csproj",
+      "projectPath": "D:\\Documents\\AVIB\\plugin\\Extension\\avib\\avib\\avib.csproj",
       "packagesPath": "C:\\Users\\gvmck\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gvmck\\OneDrive\\Documentos\\AVIB\\visualizacion\\extension\\avib\\avib\\obj\\",
+      "outputPath": "D:\\Documents\\AVIB\\plugin\\Extension\\avib\\avib\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -7367,6 +7440,10 @@
             "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "target": "Package",
             "version": "[16.0.205, )"
+          },
+          "SocketIO4Net.Client": {
+            "target": "Package",
+            "version": "[0.6.26, )"
           },
           "SocketIOClient.NetFx": {
             "target": "Package",

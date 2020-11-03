@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P7IoPjDsT8S/jixmcIAMqRLLC1XyHaWDxLbdXKYQqDtDuItlgV0UQpupZBXq3jAl+L9IptpnOvlwy/rWsflEpw==",
+  "dgSpecHash": "4imsxF4ECqSO7W/ISEQUb7nBqWVbYnh2Bce0bFa3W62zniFhv/OyBn0usGfuDZj/bMA/M2OhS0loaaKE4YAVvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gvmck\\OneDrive\\Documentos\\AVIB\\visualizacion\\extension\\avib\\avib\\avib.csproj",
+  "projectFilePath": "D:\\Documents\\AVIB\\plugin\\Extension\\avib\\avib\\avib.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gvmck\\.nuget\\packages\\engineioclientdotnet\\0.9.22\\engineioclientdotnet.0.9.22.nupkg.sha512",
     "C:\\Users\\gvmck\\.nuget\\packages\\envdte\\8.0.2\\envdte.8.0.2.nupkg.sha512",
@@ -80,6 +80,7 @@
     "C:\\Users\\gvmck\\.nuget\\packages\\microsoft.vssdk.buildtools\\16.6.2057\\microsoft.vssdk.buildtools.16.6.2057.nupkg.sha512",
     "C:\\Users\\gvmck\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\gvmck\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\gvmck\\.nuget\\packages\\socketio4net.client\\0.6.26\\socketio4net.client.0.6.26.nupkg.sha512",
     "C:\\Users\\gvmck\\.nuget\\packages\\socketioclient.netfx\\1.0.0.5\\socketioclient.netfx.1.0.0.5.nupkg.sha512",
     "C:\\Users\\gvmck\\.nuget\\packages\\socketioclientdotnet\\0.9.13\\socketioclientdotnet.0.9.13.nupkg.sha512",
     "C:\\Users\\gvmck\\.nuget\\packages\\stdole\\7.0.3302\\stdole.7.0.3302.nupkg.sha512",

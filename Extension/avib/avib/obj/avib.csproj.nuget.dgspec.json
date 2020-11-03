@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gvmck\\OneDrive\\Documentos\\AVIB\\visualizacion\\extension\\avib\\avib\\avib.csproj": {}
+    "D:\\Documents\\AVIB\\plugin\\Extension\\avib\\avib\\avib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gvmck\\OneDrive\\Documentos\\AVIB\\visualizacion\\extension\\avib\\avib\\avib.csproj": {
+    "D:\\Documents\\AVIB\\plugin\\Extension\\avib\\avib\\avib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gvmck\\OneDrive\\Documentos\\AVIB\\visualizacion\\extension\\avib\\avib\\avib.csproj",
+        "projectUniqueName": "D:\\Documents\\AVIB\\plugin\\Extension\\avib\\avib\\avib.csproj",
         "projectName": "avib",
-        "projectPath": "C:\\Users\\gvmck\\OneDrive\\Documentos\\AVIB\\visualizacion\\extension\\avib\\avib\\avib.csproj",
+        "projectPath": "D:\\Documents\\AVIB\\plugin\\Extension\\avib\\avib\\avib.csproj",
         "packagesPath": "C:\\Users\\gvmck\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gvmck\\OneDrive\\Documentos\\AVIB\\visualizacion\\extension\\avib\\avib\\obj\\",
+        "outputPath": "D:\\Documents\\AVIB\\plugin\\Extension\\avib\\avib\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
@@ -42,6 +42,10 @@
               "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "target": "Package",
               "version": "[16.0.205, )"
+            },
+            "SocketIO4Net.Client": {
+              "target": "Package",
+              "version": "[0.6.26, )"
             },
             "SocketIOClient.NetFx": {
               "target": "Package",
