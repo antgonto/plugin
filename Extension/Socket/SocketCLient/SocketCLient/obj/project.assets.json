@@ -1,0 +1,165 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Newtonsoft.Json/4.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Newtonsoft.Json.dll": {}
+        }
+      },
+      "SocketIO4Net.Client/0.6.26": {
+        "type": "package",
+        "dependencies": {
+          "newtonsoft.json": "4.0.8"
+        },
+        "compile": {
+          "lib/net40/SocketIOClient.dll": {},
+          "lib/net40/WebSocket4Net.dll": {}
+        },
+        "runtime": {
+          "lib/net40/SocketIOClient.dll": {},
+          "lib/net40/WebSocket4Net.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Newtonsoft.Json/4.0.8": {
+      "sha512": "DdlLLKJ8OYJ72Nv9R1LrHkB4ruem1b+il2amiulDm5xA4zfglfzkyz0U+i/eHjrRe3dV7xt95M7bUTiWGMYCkg==",
+      "type": "package",
+      "path": "newtonsoft.json/4.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.pdb",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.pdb",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.pdb",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/sl3-wp/Newtonsoft.Json.dll",
+        "lib/sl3-wp/Newtonsoft.Json.pdb",
+        "lib/sl3-wp/Newtonsoft.Json.xml",
+        "lib/sl4-windowsphone71/Newtonsoft.Json.dll",
+        "lib/sl4-windowsphone71/Newtonsoft.Json.pdb",
+        "lib/sl4-windowsphone71/Newtonsoft.Json.xml",
+        "lib/sl4/Newtonsoft.Json.dll",
+        "lib/sl4/Newtonsoft.Json.pdb",
+        "lib/sl4/Newtonsoft.Json.xml",
+        "newtonsoft.json.4.0.8.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
+    "SocketIO4Net.Client/0.6.26": {
+      "sha512": "KOV5M/3xAOUNXc2GXYA8GkwMemfGBjut8gyjU5/tTGwTZl2mBtS6J426pyGuxDr/tzXozu6QHVlCLpum1HigdQ==",
+      "type": "package",
+      "path": "socketio4net.client/0.6.26",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SocketIOClient.XML",
+        "lib/net40/SocketIOClient.dll",
+        "lib/net40/SocketIOClient.pdb",
+        "lib/net40/WebSocket4Net.dll",
+        "lib/net40/WebSocket4Net.pdb",
+        "socketio4net.client.0.6.26.nupkg.sha512",
+        "socketio4net.client.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "SocketIO4Net.Client >= 0.6.26"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\gvmck\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Documents\\AVIB\\plugin\\Extension\\Socket\\SocketCLient\\SocketCLient\\SocketCLient.csproj",
+      "projectName": "SocketCLient",
+      "projectPath": "D:\\Documents\\AVIB\\plugin\\Extension\\Socket\\SocketCLient\\SocketCLient\\SocketCLient.csproj",
+      "packagesPath": "C:\\Users\\gvmck\\.nuget\\packages\\",
+      "outputPath": "D:\\Documents\\AVIB\\plugin\\Extension\\Socket\\SocketCLient\\SocketCLient\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\gvmck\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "dependencies": {
+          "SocketIO4Net.Client": {
+            "target": "Package",
+            "version": "[0.6.26, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Newtonsoft.Json 4.0.8\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"SocketIO4Net.Client 0.6.26\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v3.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "SocketIO4Net.Client",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
+}

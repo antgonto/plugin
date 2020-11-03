@@ -1,0 +1,63 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "SocketCLient/1.0.0": {
+        "dependencies": {
+          "SocketIO4Net.Client": "0.6.26"
+        },
+        "runtime": {
+          "SocketCLient.dll": {}
+        }
+      },
+      "Newtonsoft.Json/4.0.8": {
+        "runtime": {
+          "lib/net40/Newtonsoft.Json.dll": {
+            "assemblyVersion": "4.0.8.0",
+            "fileVersion": "4.0.8.14612"
+          }
+        }
+      },
+      "SocketIO4Net.Client/0.6.26": {
+        "dependencies": {
+          "Newtonsoft.Json": "4.0.8"
+        },
+        "runtime": {
+          "lib/net40/SocketIOClient.dll": {
+            "assemblyVersion": "0.6.26.0",
+            "fileVersion": "0.6.26.0"
+          },
+          "lib/net40/WebSocket4Net.dll": {
+            "assemblyVersion": "0.7.0.0",
+            "fileVersion": "0.7.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SocketCLient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Newtonsoft.Json/4.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DdlLLKJ8OYJ72Nv9R1LrHkB4ruem1b+il2amiulDm5xA4zfglfzkyz0U+i/eHjrRe3dV7xt95M7bUTiWGMYCkg==",
+      "path": "newtonsoft.json/4.0.8",
+      "hashPath": "newtonsoft.json.4.0.8.nupkg.sha512"
+    },
+    "SocketIO4Net.Client/0.6.26": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KOV5M/3xAOUNXc2GXYA8GkwMemfGBjut8gyjU5/tTGwTZl2mBtS6J426pyGuxDr/tzXozu6QHVlCLpum1HigdQ==",
+      "path": "socketio4net.client/0.6.26",
+      "hashPath": "socketio4net.client.0.6.26.nupkg.sha512"
+    }
+  }
+}
