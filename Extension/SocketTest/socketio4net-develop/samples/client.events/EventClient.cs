@@ -20,7 +20,7 @@ namespace ConsoleEvents
 		{
 			Console.WriteLine("Starting SocketIO4Net Client Events Example...");
 
-            socket = new Client("http://localhost:3000/")
+            socket = new Client("http://localhost:1617/")
             {
             }; // url to the nodejs / socket.io instance
             //socket.TransportPeferenceTypes.Add(TransportType.XhrPolling);

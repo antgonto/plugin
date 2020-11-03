@@ -9,6 +9,7 @@ namespace ConsoleEvents
 	{
 		static void Main(string[] args)
 		{
+
 			Console.ForegroundColor = ConsoleColor.Green;
 			Console.WriteLine("To Exit  Console: 'q'");
 			Console.WriteLine("To Clear Console: 'c'");
