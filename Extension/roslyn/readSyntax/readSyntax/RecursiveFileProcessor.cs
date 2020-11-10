@@ -52,6 +52,7 @@ public class RecursiveFileProcessor
        // Console.WriteLine("Processed file '{0}'.", path);
         if (path.EndsWith("cs"))
         {
+            Console.WriteLine("Processed file '{0}'.", path);
             Console.WriteLine("FIIIILEEEEE");
             string readText = File.ReadAllText(path);
             var tree = CSharpSyntaxTree.ParseText(readText);
