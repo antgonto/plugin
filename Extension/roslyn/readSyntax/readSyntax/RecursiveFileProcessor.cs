@@ -3,6 +3,9 @@
 using System;
 using System.IO;
 using System.Collections;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Linq;
 
 public class RecursiveFileProcessor
 {
@@ -51,6 +54,18 @@ public class RecursiveFileProcessor
         {
             Console.WriteLine("FIIIILEEEEE");
             string readText = File.ReadAllText(path);
+            var tree = CSharpSyntaxTree.ParseText(readText);
+            var members = tree.GetRoot().DescendantNodes().OfType<MemberDeclarationSyntax>();
+
+            foreach (var member in members)
+            {
+                var property = member as PropertyDeclarationSyntax;
+                if (property != null)
+                    Console.WriteLine("Property: " + property.Identifier);
+                var method = member as MethodDeclarationSyntax;
+                if (method != null)
+                    Console.WriteLine("Method: " + method.Identifier);
+            }
             //Console.WriteLine(readText);
         }
 
