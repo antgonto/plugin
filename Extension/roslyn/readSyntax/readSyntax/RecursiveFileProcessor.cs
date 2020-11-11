@@ -6,9 +6,12 @@ using System.Collections;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Linq;
+using System.Collections.Generic;
 
 public class RecursiveFileProcessor
 {
+    public IEnumerable<object> CSharpForest { get; private set; }
+
     public static void Main(string[] args)
     {
         //foreach (string path in args)
@@ -57,7 +60,7 @@ public class RecursiveFileProcessor
             string readText = File.ReadAllText(path);
             var tree = CSharpSyntaxTree.ParseText(readText);
             var members = tree.GetRoot().DescendantNodes().OfType<MemberDeclarationSyntax>();
-
+            var parameters = new List<string>();
             foreach (var member in members)
             {
                 var property = member as PropertyDeclarationSyntax;
@@ -65,10 +68,21 @@ public class RecursiveFileProcessor
                     Console.WriteLine("Property: " + property.Identifier);
                 var method = member as MethodDeclarationSyntax;
                 if (method != null)
+                {
                     Console.WriteLine("Method: " + method.Identifier);
+                    foreach (var n in method.ParameterList.Parameters)
+                    {
+                        var parameterName = n.Identifier.Text;
+                        parameters.Add("PArameter: "+parameterName);
+                        Console.WriteLine(parameterName);
+                    }
+                }
+
+
             }
             //Console.WriteLine(readText);
         }
 
     }
+
 }
