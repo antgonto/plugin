@@ -43,10 +43,6 @@
               "target": "Package",
               "version": "[16.0.205, )"
             },
-            "SocketIO4Net.Client": {
-              "target": "Package",
-              "version": "[0.6.26, )"
-            },
             "SocketIOClient.NetFx": {
               "target": "Package",
               "version": "[1.0.0.5, )"

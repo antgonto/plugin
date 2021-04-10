@@ -28,7 +28,7 @@ namespace HighlightWordSample
     /// </summary>
     public class HighlightWordTag : TextMarkerTag 
     { 
-        public HighlightWordTag() : base("blue") { }
+        public HighlightWordTag() : base("red") { }
     }
 
     /// <summary>
@@ -234,7 +234,7 @@ namespace HighlightWordSample
             }
 
             // First, yield back the word the cursor is under (if it overlaps)
-            // Note that we'll yield back the same word again in the wordspans collection;
+            // Note that we'll yield ba*ck the same word again in the wordspans collection;
             // the duplication here is expected.
             if (spans.OverlapsWith(new NormalizedSnapshotSpanCollection(currentWord)))
                 yield return new TagSpan<HighlightWordTag>(currentWord, new HighlightWordTag());

@@ -1,0 +1,13 @@
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\bin\Debug\netcoreapp3.1\TestOpen.exe
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\bin\Debug\netcoreapp3.1\TestOpen.deps.json
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\bin\Debug\netcoreapp3.1\TestOpen.runtimeconfig.json
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\bin\Debug\netcoreapp3.1\TestOpen.runtimeconfig.dev.json
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\bin\Debug\netcoreapp3.1\TestOpen.dll
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\bin\Debug\netcoreapp3.1\TestOpen.pdb
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\obj\Debug\netcoreapp3.1\TestOpen.csprojAssemblyReference.cache
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\obj\Debug\netcoreapp3.1\TestOpen.AssemblyInfoInputs.cache
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\obj\Debug\netcoreapp3.1\TestOpen.AssemblyInfo.cs
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\obj\Debug\netcoreapp3.1\TestOpen.csproj.CoreCompileInputs.cache
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\obj\Debug\netcoreapp3.1\TestOpen.dll
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\obj\Debug\netcoreapp3.1\TestOpen.pdb
+D:\Documents\AVIB\plugin\Extension\OpenFile\TestOpen\TestOpen\obj\Debug\netcoreapp3.1\TestOpen.genruntimeconfig.cache

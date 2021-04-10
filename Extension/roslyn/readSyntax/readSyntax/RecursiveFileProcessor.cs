@@ -61,6 +61,7 @@ public class RecursiveFileProcessor
             var tree = CSharpSyntaxTree.ParseText(readText);
             var members = tree.GetRoot().DescendantNodes().OfType<MemberDeclarationSyntax>();
             var parameters = new List<string>();
+            int i = 0;
             foreach (var member in members)
             {
                 var property = member as PropertyDeclarationSyntax;
@@ -77,6 +78,9 @@ public class RecursiveFileProcessor
                         Console.WriteLine(parameterName);
                     }
                 }
+                Console.WriteLine("Line:"+i);
+                i++;
+                Console.WriteLine("Column");
 
 
             }
