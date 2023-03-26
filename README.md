@@ -1,8 +1,10 @@
 # AVIB Plugin
 
-This repository contains the code of the plugins for the Visual Studio and Eclipse IDE. It also has the projects with the docker contianers of the server, the webpage and database. 
+Este repositorio contiene el código de los plugin para Visual Studio y Eclipse IDE. El repositorio cuenta con cuatro proyectosÑ
 
-Inside the `docker` folder you will find the projects for the server, webpage and databse. Each one has it's Dockerfile used to build the images uploaded to Docker Hub. With in each folder you will find a `README.md` with instructions of use for each one. 
+1. El núcleo de la aplicación () con los contenedores docker del servidor, la página web y la base de datos.
+
+Dentro de la carpeta `docker` encontrará los proyectos para el servidor, la página web y la base de datos. Cada uno tiene su Dockerfile utilizado para construir las imágenes cargadas en Docker Hub. Dentro de cada carpeta encontrará un `README.md` con instrucciones de uso para cada uno.
 
 
 
