@@ -12,6 +12,6 @@ Estos proyectos cuentan con su propio Dockerfile, el cual es utilizado para cons
 
 ### Configurar la base de datos
 
-La configuraci'on de la base de atos requiere realizar los paso que se detallan en las siguientes secciones.
+La configuraciónn de la base de datos requiere realizar los paso que se detallan en las siguientes secciones.
 
 
