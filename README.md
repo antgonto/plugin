@@ -49,7 +49,7 @@ docker run \
     olbapd/avib-neo4j
 ```
 
-## Verificar el estado de la base de datos
+#### Verificar el estado de la base de datos
 
 Una vez que la base de datos se esté ejecutando, ejecute los siguientes comandos para asegurarse de que los archivos se hayan copiado.
 
@@ -72,6 +72,12 @@ sudo docker cp ./imports/scccalls.csv avib-db:/var/lib/neo4j/import/scccalls.csv
 sudo docker cp ./imports/sccs.csv avib-db:/var/lib/neo4j/import/sccs.csv
 ```
 
+## Cargue la base de datos
 
+1. Acceda al bash del contenedor, luego acceda al shell de cifrado con `cypher-shell -u neo4j -p admin`. 
+
+2. Ejecute los comandos en el archivo load_csv_neo4j.cypher para llenar la base de datos.
+
+3. Acceda `http://localhost:7474/browser/` y asegurese que se crearon todos los nodos.
 
 
