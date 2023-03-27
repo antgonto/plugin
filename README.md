@@ -2,16 +2,12 @@
 
 Este repositorio contiene el código de los plugin para Visual Studio y Eclipse IDE. El repositorio cuenta con cuatro proyectosÑ
 
-1. El núcleo de la aplicación () con los contenedores docker del servidor, la página web y la base de datos.
+1. Scripts de la base datos (https://github.com/antgonto/plugin/tree/master/docker/neo4j-docker).
+2. Backend - el núcleo de la aplicación (https://github.com/antgonto/plugin/tree/master/docker/avib-app).
+3. Servidor del backend (https://github.com/antgonto/plugin/tree/master/docker/server-docker).
+4. Frontend (https://github.com/antgonto/plugin/tree/master/docker/webpage-docker).
 
-Dentro de la carpeta `docker` encontrará los proyectos para el servidor, la página web y la base de datos. Cada uno tiene su Dockerfile utilizado para construir las imágenes cargadas en Docker Hub. Dentro de cada carpeta encontrará un `README.md` con instrucciones de uso para cada uno.
+Estos proyectos cuentan con su propio Dockerfile, el cual es utilizado para construir las imágenes y cargarlas en Docker Hub. La carpeta de cada proyecto cuenta con su propio archivo `README.md` que tiene las instrucciones especifícas de cada uno.
 
 
 
-## Continuos Integration
-
-![Webpage CI](https://github.com/antgonto/plugin/workflows/Webpage%20CI/badge.svg)
-
-**Last update 26-Oct-2020. The actions are currently DISABLED. Currently not using an external tool for CI/CD.**
-
-This repository has actions configured that will build any changes done to the diferent projects in the `docker` folder. If the CI is done using a tool external to GitHub, then they will disabled. A line will be added to keep track of the current state. Keep it updated with the state and the date of the laste update. 
