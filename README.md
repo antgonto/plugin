@@ -6,7 +6,9 @@ Este repositorio contiene el código de los plugin para Visual Studio y Eclipse 
 2. Backend - el núcleo de la aplicación (https://github.com/antgonto/plugin/tree/master/docker/avib-app).
 3. Servidor del backend (https://github.com/antgonto/plugin/tree/master/docker/server-docker).
 4. Frontend (https://github.com/antgonto/plugin/tree/master/docker/webpage-docker).
-
+5. Plugin de Eclipse (https://github.com/antgonto/plugin/tree/master/Java).
+6. Plugin de Visual Studio (https://github.com/antgonto/plugin/tree/master/Extension).
+ 
 Estos proyectos cuentan con su propio Dockerfile, el cual es utilizado para construir las imágenes y cargarlas en Docker Hub. La carpeta de cada proyecto cuenta con su propio archivo `README.md` que tiene las instrucciones especifícas de cada uno.
 
 El primer paso que se debe realizar es clonar el proyecto que se encuentran en el repositorio https://github.com/antgonto/plugin.git.
@@ -138,6 +140,17 @@ Si desea ejecutar el contenedor en modo desconectado, puede ejecutar este comand
 
 sudo docker run -d -p 8090:8090 -p 1617:1617 olbapd/avib-webpage --name avib-webpage
 
-Acceda a la aplicación en la URL http://localhost:1617
+### Plugin de Eclipse 
+
+1. Cargue el proyecto en la URL https://github.com/antgonto/plugin/tree/master/Java/TestingView en Eclipse y agregue los jar en https://github.com/antgonto/plugin/tree/master/Java/Executables a las bibliotedas del proyecto.
+2. Ejecute Eclipse y abra la extensión en la opción de Plugins.
+
+### Plugin de Visual Studio 
+
+1. Cargue el proyecto en la URL [https://github.com/antgonto/plugin/tree/master/Java/TestingView](https://github.com/antgonto/plugin/tree/master/Extension/avib) en Visual Studio.
+2. Ejecute Visual Studio y abra la extensión.
+3. 
+6. Plugin de Visual Studio (https://github.com/antgonto/plugin/tree/master/Extension).
+ 
 
 
