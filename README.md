@@ -1,6 +1,6 @@
 ## AVIB Plugin
 
-Este repositorio contiene el código de los plugin para Visual Studio y Eclipse IDE. El repositorio cuenta con cuatro proyectosÑ
+Este repositorio contiene el código de los plugin para Visual Studio y Eclipse IDE. El repositorio cuenta con cuatro proyectos:
 
 1. Scripts de la base datos (https://github.com/antgonto/plugin/tree/master/docker/neo4j-docker).
 2. Backend - el núcleo de la aplicación (https://github.com/antgonto/plugin/tree/master/docker/avib-app).
