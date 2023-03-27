@@ -112,7 +112,7 @@ Ejecute `ng e2e` para ejecutar las pruebas de extremo a extremo usando  [Protrac
 
 Para obtener ayuda sobre Angular CLI, use `ng help` o consulte [Angular CLI README] (https://github.com/angular/angular-cli/blob/master/README.md).
 
-### Servidor del backend
+### Configuar el servidor del backend
 
 La configuración del backend requiere efectuar los pasos que se detallan a continuación.
 
@@ -126,4 +126,14 @@ Si desea ejecutar el contenedor en modo desconectado, ejecute este comando.
 
 `sudo docker run -d -p 1617:1617 olbapd/avib-server --name avib-server`
 
+### Configurar y ejecutar el frontend
 
+#### Crear imagen
+sudo docker build --tag olbapd/avib-webpage .
+
+#### Crear y ejecturar el contenedor
+sudo docker run  -p 8090:8090  -p 1617:1617 olbapd/avib-webpage --name avib-webpage
+
+Si desea ejecutar el contenedor en modo desconectado, puede ejecutar este comando.
+
+sudo docker run -d -p 8090:8090 -p 1617:1617 olbapd/avib-webpage --name avib-webpage
