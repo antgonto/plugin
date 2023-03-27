@@ -81,3 +81,34 @@ sudo docker cp ./imports/sccs.csv avib-db:/var/lib/neo4j/import/sccs.csv
 3. Acceda `http://localhost:7474/browser/` y asegurese que se crearon todos los nodos.
 
 
+### Configurar el backend
+
+Este proyecto se creó con [Angular CLI](https://github.com/angular/angular-cli) versión 10.1.1 y su configuración requiere realizar los pasos que se encuentran a continuación.
+
+#### Servidor de desarrollo
+
+Ejecute `ng serve` y navegue a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos de origen.
+
+#### Encadenado de código
+
+Ejecute `ng generar componente nombre-componente` para generar un nuevo componente. También puede usar `ng generar directiva|tubería|servicio|clase|guardia|interfaz|enum|módulo`.
+
+Ejecute `ng generate component component-name` para generar un nuevo componente. También puede usar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+
+#### Generar la aplicación
+
+Ejecute `ng build` para compilar el proyecto. Los artefactos de compilación se almacenarán en el directorio `dist/`. Use el indicador `--prod` para una compilación de producción.
+
+#### Ejecute las pruebas unitarias
+
+Ejecute `ng test` para ejecutar las pruebas unitarias a través con [Karma](https://karma-runner.github.io).
+
+#### Ejecute las pruebas de extremo a extremo
+
+Ejecute `ng e2e` para ejecutar las pruebas de extremo a extremo usando  [Protractor](http://www.protractortest.org/).
+
+#### Ayuda
+
+Para obtener ayuda sobre Angular CLI, use `ng help` o consulte [Angular CLI README] (https://github.com/angular/angular-cli/blob/master/README.md).
+
