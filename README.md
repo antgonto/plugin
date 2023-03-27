@@ -137,3 +137,7 @@ sudo docker run  -p 8090:8090  -p 1617:1617 olbapd/avib-webpage --name avib-webp
 Si desea ejecutar el contenedor en modo desconectado, puede ejecutar este comando.
 
 sudo docker run -d -p 8090:8090 -p 1617:1617 olbapd/avib-webpage --name avib-webpage
+
+Acceda a la aplicación en la URL http://localhost:1617
+
+
