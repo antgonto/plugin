@@ -1,4 +1,4 @@
-### AVIB Plugin
+## AVIB Plugin
 
 Este repositorio contiene el código de los plugin para Visual Studio y Eclipse IDE. El repositorio cuenta con cuatro proyectosÑ
 
@@ -9,5 +9,9 @@ Este repositorio contiene el código de los plugin para Visual Studio y Eclipse 
 
 Estos proyectos cuentan con su propio Dockerfile, el cual es utilizado para construir las imágenes y cargarlas en Docker Hub. La carpeta de cada proyecto cuenta con su propio archivo `README.md` que tiene las instrucciones especifícas de cada uno.
 
+
+### Configurar la base de datos
+
+La configuraci'on de la base de atos requiere realizar los paso que se detallan en las siguientes secciones.
 
 
